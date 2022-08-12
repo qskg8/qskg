@@ -1,7 +1,4 @@
-# -
-轻松矿工可直连版
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" >
 <head>
 <meta charset="UTF-8">
