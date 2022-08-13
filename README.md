@@ -16,5 +16,3 @@ hive	stratum+ssl://waeth.cc:25618<br>
 	<p class="list-group-item"><a href="https://t.me/waeth888" title="">联系本人 </a></p>
 		</div>
 	
-<br>
-下载轻松矿工 https://codeload.github.com/qskg8/qskg/zip/refs/heads/%E8%BD%BB%E6%9D%BE%E7%9F%BF%E5%B7%A5
