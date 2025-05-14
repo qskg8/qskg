@@ -24,26 +24,43 @@ else
     echo "pip已安装"
 fi
 
-# 3. 创建ETH文件夹并进入该文件夹
-mkdir -p ~/ETH
-cd ~/ETH
+# 3. 安装python3-venv（如果未安装）
+if ! dpkg -l | grep python3-venv &> /dev/null
+then
+    echo "python3-venv未安装，正在安装..."
+    sudo apt-get install -y python3.10-venv
+else
+    echo "python3-venv已安装"
+fi
 
-# 4. 克隆GitHub上的脚本仓库
+# 4. 创建/ETH文件夹并进入该文件夹
+if [ -d "/ETH" ]; then
+    echo "/ETH文件夹已存在，跳过创建"
+else
+    sudo mkdir -p /ETH  # 创建ETH文件夹
+fi
+cd /ETH
+
+# 5. 克隆GitHub上的脚本仓库
 if [ ! -d "$SCRIPT_NAME" ]; then
     echo "从GitHub克隆仓库..."
-    git clone $GITHUB_REPO_URL .
+    sudo git clone $GITHUB_REPO_URL .
 else
     echo "仓库已存在，跳过克隆步骤"
 fi
 
-# 5. 创建并激活虚拟环境
-python3 -m venv venv
+# 6. 创建并激活虚拟环境
+sudo python3 -m venv venv
 source venv/bin/activate
 
-# 6. 安装所需的Python库
-pip install -r requirements.txt
+# 7. 安装所需的Python库
+if [ -f "requirements.txt" ]; then
+    pip install -r requirements.txt
+else
+    echo "没有找到 requirements.txt 文件，跳过依赖安装"
+fi
 
-# 7. 启动一个新的screen会话并在其中运行脚本
+# 8. 启动一个新的screen会话并在其中运行脚本
 screen -dmS eth_scraper bash -c "python3 $SCRIPT_NAME"
 
 # 提示信息
