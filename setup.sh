@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # 设置GitHub仓库的URL（请替换为你的实际仓库地址）
-GITHUB_REPO_URL="https://github.com/your_username/your_repo.git"
-SCRIPT_NAME="your_script.py"  # 你的Python脚本文件名
+GITHUB_REPO_URL="https://github.com/qskg8/qskg.git"
+SCRIPT_NAME="eth.py"  # 你的Python脚本文件名
 
 # 1. 安装screen（如果未安装）
 if ! command -v screen &> /dev/null
