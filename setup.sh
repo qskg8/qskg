@@ -40,10 +40,23 @@ fi
 python3 -m venv venv
 source venv/bin/activate
 
-# 6. 安装所需的Python库
+# 6. 安装Playwright（如果未安装）
+if ! pip show playwright &> /dev/null
+then
+    echo "Playwright未安装，正在安装..."
+    pip install playwright
+else
+    echo "Playwright已安装"
+fi
+
+# 7. 安装所需的Python库（包括Playwright的依赖）
 pip install -r requirements.txt
 
-# 7. 启动一个新的screen会话并在其中运行脚本
+# 8. 安装Playwright所需的浏览器
+echo "安装Playwright所需的浏览器..."
+python3 -m playwright install
+
+# 9. 启动一个新的screen会话并在其中运行脚本
 screen -dmS eth_scraper bash -c "python3 $SCRIPT_NAME"
 
 # 提示信息
