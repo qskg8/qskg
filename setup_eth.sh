@@ -14,7 +14,7 @@ curl -L -o eth.pyc https://github.com/qskg8/qskg/blob/%E8%BD%BB%E6%9D%BE%E7%9F%B
 # 4. 安装虚拟环境
 echo "安装虚拟环境..."
 apt update
-apt install python3-venv -y
+apt install python3-venv python3-pip -y
 
 # 5. 创建并激活虚拟环境
 python3 -m venv venv
